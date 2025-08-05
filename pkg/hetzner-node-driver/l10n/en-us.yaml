@@ -1,0 +1,7 @@
+driver:
+  hetzner:
+    auth:
+      fields:
+        token:
+          label: "API Token"
+          placeholder: "Your Hetzner Cloud API token."
