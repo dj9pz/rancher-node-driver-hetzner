@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import CreateEditView from '@shell/mixins/create-edit-view';
-import { computed, defineComponent, nextTick, onMounted, reactive, ref, watch } from "vue";
+import { computed, nextTick, onMounted, reactive, ref, watch } from "vue";
 import Loading from '@shell/components/Loading.vue';
 import LabeledSelect from '@shell/components/form/LabeledSelect.vue';
 import KeyValue from '@shell/components/form/KeyValue.vue';
@@ -255,6 +254,8 @@ function test() {
 </script>
 
 <script lang="ts">
+import CreateEditView from '@shell/mixins/create-edit-view';
+import { defineComponent } from "vue";
 // import your mixin
 export default defineComponent({
     mixins: [CreateEditView]
