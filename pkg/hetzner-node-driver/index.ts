@@ -1,8 +1,6 @@
 import { importTypes } from '@rancher/auto-import';
 import { IPlugin } from '@shell/core/types';
 
-const ID = 'hetzner-bq';
-
 // Init the package
 export default function(plugin: IPlugin): void {
   // Auto-import model, detail, edit from the folders
@@ -13,4 +11,6 @@ export default function(plugin: IPlugin): void {
 
   // Load a product
   // plugin.addProduct(require('./product'));
+
+  plugin.register('image', 'providers/hetzner.svg', require('./hetzner.svg'));
 }
