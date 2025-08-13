@@ -69,12 +69,7 @@ yarn build-pkg hetzner-node-driver
 
 The built extension will be available in `dist-pkg/`.
 
-## Usage
-1. Build the extension as above.
-2. Upload the generated package from `dist-pkg/` to your Rancher instance as a custom node driver UI extension.
-3. When creating a new node template, select "Hetzner Cloud" and fill in the required fields.
-
-## Customization
+### Customization
 - Edit `pkg/hetzner-node-driver/machine-config/hetzner.vue` to change the UI or logic.
 - Update `pkg/hetzner-node-driver/hcloud.ts` for API changes or enhancements.
 - Add translations in `pkg/hetzner-node-driver/l10n/`.
