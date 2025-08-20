@@ -1,8 +1,8 @@
-# Rancher Node Driver for Hetzner Cloud
+# Rancher Node Driver UI extension for Hetzner Cloud
 
 This project implements a custom node driver UI extension for Rancher, enabling users to provision and manage nodes in Hetzner Cloud using the new v3 extension API.
 
-It is building upon the great work of [mxschmitt](https://github.com/mxschmitt/ui-driver-hetzner) and [JonasProgrammer](https://github.com/JonasProgrammer/docker-machine-driver-hetzner). It is meant to be used together with a custom fork of JonasProgrammer's Docker-machine-driver found in this repository: https://github.com/bluquist/docker-machine-driver-hetzner
+It is building upon the great work of [mxschmitt](https://github.com/mxschmitt/ui-driver-hetzner) and [JonasProgrammer](https://github.com/JonasProgrammer/docker-machine-driver-hetzner). It is meant to be used together with a custom fork of JonasProgrammer's Docker-machine-driver, introducing some Rancher-specific adjustments, found in this repository: https://github.com/bluquist/docker-machine-driver-hetzner
 
 ## Features
 - Seamless integration with Rancher for creating and managing Hetzner Cloud nodes
@@ -45,7 +45,7 @@ In Rancher, navigate to `Extensions`, open the three-dot context menu and select
 Navigate to `Extensions` again and install the "Hetzner Node Driver" extension that should now be available.
 
 ### Add a cloud credential
-In Rancher, navigate to `Cluster Management - Cloud Credentials`. Create a new cloud credential for Hetzner. Add a read-write API token to the Hetzner project you want to create your cluster in. See the [Hetzner documentation](https://docs.hetzner.com/cloud/api/getting-started/generating-api-token/) for details on how to create API tokens.
+In Rancher, navigate to `Cluster Management` → `Cloud Credentials`. Create a new cloud credential for Hetzner. Add a read-write API token to the Hetzner project you want to create your cluster in. See the [Hetzner documentation](https://docs.hetzner.com/cloud/api/getting-started/generating-api-token/) for details on how to create API tokens.
 
 ### Create a cluster
 You should now be able to create a new cluster using the Hetzner driver. If you want to use private networks for communication, make sure that Rancher can reach the private Hetzner network.
@@ -73,9 +73,6 @@ The built extension will be available in `dist-pkg/`.
 - Edit `pkg/hetzner-node-driver/machine-config/hetzner.vue` to change the UI or logic.
 - Update `pkg/hetzner-node-driver/hcloud.ts` for API changes or enhancements.
 - Add translations in `pkg/hetzner-node-driver/l10n/`.
-
-## License
-MIT
 
 ## References
 - [Rancher extension documentation](https://extensions.rancher.io/extensions/next/introduction)
