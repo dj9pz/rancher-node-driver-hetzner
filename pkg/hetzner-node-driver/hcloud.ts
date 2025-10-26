@@ -47,7 +47,7 @@ export class HetznerCloud {
     }
 
     public async getImages(): Promise<HetznerOption[]> {
-        const response = await this.request('/images?per_page=50');
+        const response = await this.request('/images?per_page=100');
         return response.images.map((image: any) => ({
             value: image.id,
             label: `${image.name} (${image.architecture}) - ${image.description}`,
