@@ -47,11 +47,20 @@ export class HetznerCloud {
     }
 
     public async getImages(): Promise<HetznerOption[]> {
-        const response = await this.request('/images?per_page=100');
-        return response.images.map((image: any) => ({
-            value: image.id,
-            label: `${image.name} (${image.architecture}) - ${image.description}`,
-        }));
+        let pageNum = 1;
+        let resultArray: any[] = [];
+        let shouldContinue = true;
+        do {
+            const response = await this.request(`/images?page=${pageNum}&per_page=50`);
+            let tempArray = response.images.map((image: any) => ({
+                value: image.id,
+                label: `${image.name} (${image.architecture}) - ${image.description}`,
+            }));
+            resultArray = [...resultArray, ...tempArray];
+            pageNum++;
+            shouldContinue = response.meta.pagination.last_page >= pageNum;
+        } while (shouldContinue);
+        return resultArray;
     }
 
     public async getPlacementGroups(): Promise<HetznerOption[]> {
